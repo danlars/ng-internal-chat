@@ -1,0 +1,16 @@
+<div class="card" [ngClass]="{'active': isSelected()}" (click)="selectThread()" role="button" tabindex="0">
+  <div class="card-body">
+    <div class="d-flex align-items-center mb-2">
+      <p class="card-text text-secondary my-0">
+        {{(thread.latest_message ? thread.latest_message.created_at : thread.created_at) | date}}
+      </p>
+      <div class="ms-auto">
+        <button class="btn btn-link btn-sm text-danger p-0 text-decoration-none" type="button" (click)="removeThread()">
+          Remove
+        </button>
+      </div>
+    </div>
+    <h3 class="card-title">{{thread.name}}</h3>
+    <p class="card-text mb-2" *ngIf="thread.latest_message" [innerHTML]="thread.latest_message.message"></p>
+  </div>
+</div>

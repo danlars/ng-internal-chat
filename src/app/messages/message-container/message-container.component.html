@@ -1,0 +1,13 @@
+<div class="d-flex flex-column vh-100">
+  <div class="chat-container px-3">
+    <app-chat-container class="vh-100"></app-chat-container>
+  </div>
+  <div class="chat-text p-3 bg-white">
+    <app-textarea [(model)]="chatMessage"></app-textarea>
+    <div class="text-end pt-3">
+      <button class="btn btn-primary" [disabled]="!canSendMessage()" type="button" (click)="sendMessage()">
+        Send
+      </button>
+    </div>
+  </div>
+</div>

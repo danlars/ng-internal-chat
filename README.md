@@ -1,4 +1,5 @@
 # NgChat
+Short boilerplate sample for making a chat in Angular. No Backend has been implemented, only tons of dummy data.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.2.
 

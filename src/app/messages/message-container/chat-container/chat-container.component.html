@@ -1,0 +1,15 @@
+<div class="pb-2 h-100 d-flex flex-column">
+  <!-- We use the loop in here... -->
+  <div class="mt-auto">
+    <div *ngFor="let message of messages$ | async">
+      <app-chat-bubble
+        [message]="message"
+        [fromMe]="messageFromMe(message)"
+        class="d-block mt-2">
+      </app-chat-bubble>
+      <p class="px-2 mb-1 text-secondary" [ngClass]="{'text-end': !messageFromMe(message)}">
+        {{getUserName(message)}}
+      </p>
+    </div>
+  </div>
+</div>

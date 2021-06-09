@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {UsersService} from './store/users/users.service';
+import {UserInterface} from './interfaces/user.interface';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ng-chat';
+  selectedUser: UserInterface | null;
+  constructor(private readonly usersService: UsersService) {
+    this.usersService.selectedUser$.subscribe((user) => {
+      this.selectedUser = user;
+    });
+  }
 }

@@ -1,0 +1,37 @@
+
+<div class="px-3">
+  <h1>
+    Users
+  </h1>
+  <button class="btn btn-primary" (click)="setSelectedUser(null)">
+    Reset Selected User
+  </button>
+</div>
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th class="ps-3">Id</th>
+    <th>Name</th>
+    <th class="text-end">username</th>
+    <th class="text-end pe-3">Password</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let user of users$ | async;"
+      [ngClass]="{'table-active': isSelectedUser(user)}"
+      (click)="setSelectedUser(user)">
+    <td class="ps-3">
+      {{user.id}}
+    </td>
+    <td>
+      {{user.name}}
+    </td>
+    <td class="text-end">
+      {{user.username}}
+    </td>
+    <td class="text-end pe-3">
+      {{user.password}}
+    </td>
+  </tr>
+  </tbody>
+</table>

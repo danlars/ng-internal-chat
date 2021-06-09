@@ -1,0 +1,13 @@
+.card {
+  padding-right: 9px;
+
+  &:hover, &.active {
+    background-color: var(--bs-gray-light);
+  }
+
+  &.active {
+    border-right-color: var(--bs-primary);
+    border-right-width: 10px;
+    padding-right: 0;
+  }
+}

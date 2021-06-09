@@ -1,1 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap";
+
+:root {
+  --bs-cyan-light: #{$cyan-100};
+  --bs-gray-light: #{$gray-100};
+}

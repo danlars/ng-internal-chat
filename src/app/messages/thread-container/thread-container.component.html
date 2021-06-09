@@ -1,0 +1,17 @@
+<div class="thread-navigation-bar">
+  <button class="btn btn-link p-0 text-decoration-none" type="button" (click)="createThread()">
+    Create thread
+  </button>
+</div>
+<div>
+  <label for="searchThreads" class="form-label visually-hidden">Søg efter chats</label>
+  <input type="text"
+         [formControl]="threadSearch"
+         class="form-control"
+         id="searchThreads"
+         placeholder="Søg">
+</div>
+
+<div class="pb-3">
+  <app-thread *ngFor="let thread of threads$ | async;" [thread]="thread" class="d-block pt-3"></app-thread>
+</div>
