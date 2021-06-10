@@ -5,7 +5,7 @@ import {ThreadsService} from './threads/threads.service';
 import {MessagesService} from './messages/messages.service';
 import {StoreModule} from '@ngrx/store';
 import {messagesReducer} from './messages/messages.reducers';
-import {searchThreadReducer, selectedThreadReducer, threadReducer} from './threads/threads.reducers';
+import {selectedThreadReducer, threadReducer} from './threads/threads.reducers';
 import {usersReducer, selectedUserReducer} from './users/users.reducers';
 
 @NgModule({
@@ -19,7 +19,6 @@ import {usersReducer, selectedUserReducer} from './users/users.reducers';
     StoreModule.forRoot({
       messages: messagesReducer,
       selectedThread: selectedThreadReducer,
-      searchThread: searchThreadReducer,
       threads: threadReducer,
       users: usersReducer,
       selectedUser: selectedUserReducer,

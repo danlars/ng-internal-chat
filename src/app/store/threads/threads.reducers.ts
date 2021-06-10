@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import {setThread, addThread, removeThread, setThreadSearch, setLatestMessageOnSelectedThread} from './threads.actions';
+import {setThread, addThread, removeThread, setLatestMessageOnSelectedThread} from './threads.actions';
 import {ThreadInterface} from '../../interfaces/thread.interface';
 
 const selectedThreadInitialState: ThreadInterface | null = {
@@ -39,20 +39,11 @@ const threadsInitialState: ThreadInterface[] = [{
   }
 }];
 
-const searchInitialState = '';
-
 export const selectedThreadReducer = createReducer(
   selectedThreadInitialState,
   on(setThread, (state, { thread }) => {
     return thread;
   })
-);
-
-export const searchThreadReducer = createReducer(
-  searchInitialState,
-  on(setThreadSearch, (state, { search }) => {
-    return search;
-  }),
 );
 
 export const threadReducer = createReducer(

@@ -1,21 +1,19 @@
 import {Injectable} from '@angular/core';
 import {ThreadInterface} from '../../interfaces/thread.interface';
 import {select, Store} from '@ngrx/store';
-import {addThread, removeThread, setThread, setThreadSearch, setLatestMessageOnSelectedThread} from './threads.actions';
+import {addThread, removeThread, setThread, setLatestMessageOnSelectedThread} from './threads.actions';
 import {Observable} from 'rxjs';
-import {selectThreads, selectThread, selectFilterThreads} from './threads.selectors';
+import {selectThreads, selectThread} from './threads.selectors';
 import {MessageInterface} from '../../interfaces/message.interface';
 
 @Injectable()
 export class ThreadsService {
   selectedThread$: Observable<ThreadInterface | null>;
   threads$: Observable<ThreadInterface[]>;
-  filterThreads$: Observable<ThreadInterface[]>;
   private _threads: ThreadInterface[] = [];
 
   constructor(private readonly store: Store) {
     this.threads$ = this.store.pipe(select(selectThreads));
-    this.filterThreads$ = this.store.pipe(select(selectFilterThreads));
     this.selectedThread$ = this.store.pipe(select(selectThread));
     this.threads$.subscribe((threads) => {
       this._threads = threads;
@@ -24,10 +22,6 @@ export class ThreadsService {
 
   addThread(thread: ThreadInterface) {
     this.store.dispatch(addThread({thread}));
-  }
-
-  setSearch(search: string | null) {
-    this.store.dispatch(setThreadSearch({search}));
   }
 
   removeThread(thread: ThreadInterface) {

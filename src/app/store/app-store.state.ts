@@ -8,5 +8,4 @@ export interface AppStoreState {
   threads: ThreadInterface[];
   selectedUser: UserInterface | null;
   users: UserInterface[];
-  searchThread: string;
 }
